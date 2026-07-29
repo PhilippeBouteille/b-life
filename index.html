@@ -105,6 +105,13 @@ nav a:hover{color:white}
 .card-img{width:100%;height:320px;background:linear-gradient(145deg,#E8F0F8,#C8D8E8);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;position:relative}
 .card-img img{width:auto;height:100%;max-width:100%;object-fit:contain}
 .no-photo-label{font-size:.75rem;color:var(--muted,#6b7a8d);margin-top:.4rem}
+
+.lightbox-overlay{position:fixed;inset:0;background:rgba(13,27,42,.92);z-index:1000;display:none;align-items:center;justify-content:center;padding:2rem;flex-direction:column;gap:1rem}
+.lightbox-overlay.open{display:flex}
+.lightbox-overlay img{max-width:min(90vw,500px);max-height:80vh;width:auto;object-fit:contain;border-radius:4px}
+.lightbox-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,.15);color:white;border:none;width:40px;height:40px;border-radius:50%;font-size:1.1rem;cursor:pointer}
+.lightbox-close:hover{background:rgba(255,255,255,.3)}
+.lightbox-caption{color:white;font-size:.9rem;letter-spacing:.02em}
 .ski-svg{width:60px;opacity:.7}
 
 .card-body{padding:.9rem 1rem 1rem}
@@ -165,15 +172,6 @@ nav a:hover{color:white}
 .guide-block h3{font-size:.95rem;font-weight:500;color:var(--night);margin-bottom:.5rem}
 .guide-block p{font-size:.83rem;color:var(--muted);line-height:1.6}
 .guide-block .level-icon{font-size:1.4rem;margin-bottom:.5rem;display:block}
-
-.guide-qa{margin-top:1.5rem}
-.qa-item{border-bottom:1px solid var(--border);padding:1rem 0}
-.qa-item h3{font-size:.92rem;font-weight:500;color:var(--night);margin-bottom:.4rem}
-.qa-item p{font-size:.83rem;color:var(--muted);line-height:1.65}
-
-.related-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
-.rel-tag{border:1.5px solid var(--border);border-radius:20px;padding:5px 14px;font-size:.8rem;color:var(--text);cursor:pointer;transition:all .2s}
-.rel-tag:hover{border-color:var(--glacier);color:var(--glacier)}
 
 /* ── FOOTER ── */
 footer{background:var(--night);color:#6B8099;padding:2rem;text-align:center;font-size:.82rem;border-top:1px solid rgba(255,255,255,.06)}
@@ -290,7 +288,7 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
         <div class="card-badges">
           <span class="badge badge-occasion">1 unidad en stock</span>
         </div>
-        <div class="card-img">
+        <div class="card-img" onclick="openLightbox('images/icelantic-nomad-156.jpg','Icelantic Nomad')" style="cursor:zoom-in">
           <img src="images/icelantic-nomad-156.jpg" alt="Icelantic Nomad" loading="lazy">
         </div>
         <div class="card-body">
@@ -313,7 +311,7 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
         <div class="card-badges">
           <span class="badge badge-occasion">1 unidad en stock</span>
         </div>
-        <div class="card-img">
+        <div class="card-img" onclick="openLightbox('images/icelantic-shaman-173.jpg','Icelantic Shaman')" style="cursor:zoom-in">
           <img src="images/icelantic-shaman-173.jpg" alt="Icelantic Shaman" loading="lazy">
         </div>
         <div class="card-body">
@@ -336,7 +334,7 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
         <div class="card-badges">
           <span class="badge badge-occasion">2 unidades en stock</span>
         </div>
-        <div class="card-img">
+        <div class="card-img" onclick="openLightbox('images/rossignol-s7-188.jpg','Rossignol S7')" style="cursor:zoom-in">
           <img src="images/rossignol-s7-188.jpg" alt="Rossignol S7" loading="lazy">
         </div>
         <div class="card-body">
@@ -359,7 +357,7 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
         <div class="card-badges">
           <span class="badge badge-occasion">1 unidad en stock</span>
         </div>
-        <div class="card-img">
+        <div class="card-img" onclick="openLightbox('images/rossignol-super7-188.jpg','Rossignol Super7')" style="cursor:zoom-in">
           <img src="images/rossignol-super7-188.jpg" alt="Rossignol Super7" loading="lazy">
         </div>
         <div class="card-body">
@@ -382,7 +380,7 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
         <div class="card-badges">
           <span class="badge badge-occasion">1 unidad en stock</span>
         </div>
-        <div class="card-img">
+        <div class="card-img" onclick="openLightbox('images/rossignol-scratch-182.jpg','Rossignol Scratch')" style="cursor:zoom-in">
           <img src="images/rossignol-scratch-182.jpg" alt="Rossignol Scratch" loading="lazy">
         </div>
         <div class="card-body">
@@ -432,7 +430,7 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
         <div class="card-badges">
           <span class="badge badge-occasion">1 unidad en stock</span>
         </div>
-        <div class="card-img">
+        <div class="card-img" onclick="openLightbox('images/stockli-laser-169.jpg','Stöckli Laser')" style="cursor:zoom-in">
           <img src="images/stockli-laser-169.jpg" alt="Stöckli Laser" loading="lazy">
         </div>
         <div class="card-body">
@@ -455,7 +453,7 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
         <div class="card-badges">
           <span class="badge badge-occasion">1 unidad en stock</span>
         </div>
-        <div class="card-img">
+        <div class="card-img" onclick="openLightbox('images/stockli-racetiger-gsjr-130.jpg','Stöckli Racetiger GS Jr')" style="cursor:zoom-in">
           <img src="images/stockli-racetiger-gsjr-130.jpg" alt="Stöckli Racetiger GS Jr" loading="lazy">
         </div>
         <div class="card-body">
@@ -478,7 +476,7 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
         <div class="card-badges">
           <span class="badge badge-occasion">1 unidad en stock</span>
         </div>
-        <div class="card-img">
+        <div class="card-img" onclick="openLightbox('images/stockli-rtmjr-140.jpg','Stöckli RTM Jr')" style="cursor:zoom-in">
           <img src="images/stockli-rtmjr-140.jpg" alt="Stöckli RTM Jr" loading="lazy">
         </div>
         <div class="card-body">
@@ -501,7 +499,7 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
         <div class="card-badges">
           <span class="badge badge-occasion">52 unidades en stock</span>
         </div>
-        <div class="card-img">
+        <div class="card-img" onclick="openLightbox('images/volkl-rtm74.jpg','Völkl RTM 7,4')" style="cursor:zoom-in">
           <img src="images/volkl-rtm74.jpg" alt="Völkl RTM 7,4" loading="lazy">
         </div>
         <div class="card-body">
@@ -524,7 +522,7 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
         <div class="card-badges">
           <span class="badge badge-occasion">24 unidades en stock</span>
         </div>
-        <div class="card-img">
+        <div class="card-img" onclick="openLightbox('images/volkl-sensor.jpg','Völkl Sensor')" style="cursor:zoom-in">
           <img src="images/volkl-sensor.jpg" alt="Völkl Sensor" loading="lazy">
         </div>
         <div class="card-body">
@@ -582,29 +580,6 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
         <p>Regla general: entre mentón y frente para carving en pista; entre nariz y 5 cm sobre la cabeza para freeride y All Mountain. Nunca compres más largo "para crecer" — perjudica la técnica.</p>
       </div>
     </div>
-
-    <div class="guide-qa">
-      <div class="qa-item">
-        <h3>¿Qué revisar antes de comprar un esquí de usados verificados?</h3>
-        <p>Primero las cantoneras: si están redondeadas o con cortes profundos, el ski no va a carvar bien y tendrás que afilarlas. Luego las suelas: rayaduras finas son normales, grietas longitudinales son problema. Las fijaciones deben soltar correctamente — pruébalas con la bota puesta. Un equipo con estas tres cosas en orden vale su precio, sin importar el año.</p>
-      </div>
-      <div class="qa-item">
-        <h3>¿Con o sin fijaciones?</h3>
-        <p>Si compras tu primer par, un pack ski + fijación ya montada y calibrada es la opción más segura. Si ya tienes botas de ski y conoces tu DIN (índice de suelta), puedes comprar el ski solo y montar las fijaciones en Coyhaique. Consúltanos por WhatsApp si tienes dudas.</p>
-      </div>
-      <div class="qa-item">
-        <h3>¿Qué diferencia un esquí de pista de uno de freeride?</h3>
-        <p>Un esquí de pista (carving) mide entre 70 y 85 mm bajo el pie, con radios de giro cortos, pensado para nieve compactada. Un freeride es más ancho — 90 mm o más bajo el pie — y ofrece mayor flotación en nieve profunda o variable fuera de pista.</p>
-      </div>
-    </div>
-
-    <div class="related-tags">
-      <button class="rel-tag" onclick="filterByType()">Ver catálogo</button>
-      <button class="rel-tag" onclick="filterByType()">Skis niños</button>
-      <button class="rel-tag" onclick="filterByType()">Pack ski + fijaciones</button>
-      <button class="rel-tag" onclick="filterByType()">Rossignol</button>
-      <button class="rel-tag" onclick="filterByType()">Völkl</button>
-    </div>
   </div>
 </section>
 
@@ -614,7 +589,6 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
       <h4>B-Life</h4>
       <p style="font-size:.82rem;line-height:1.6;margin-bottom:.75rem">Skis usados y verificados, seleccionados en Coyhaique, Aysén.</p>
       <a href="https://wa.me/56996158125">💬 WhatsApp</a>
-      <a href="mailto:hola@belifemarket.cl">hola@belifemarket.cl</a>
     </div>
     <div class="footer-col">
       <h4>Información</h4>
@@ -633,8 +607,27 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
   </div>
 </footer>
 
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="">
+  <p class="lightbox-caption" id="lightbox-caption"></p>
+</div>
+
 
 <script>
+// LIGHTBOX
+function openLightbox(src, caption){
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-img').alt = caption;
+  document.getElementById('lightbox-caption').textContent = caption;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); });
+
 // FILTER TOGGLE
 function toggleFilter(btn){
   btn.classList.toggle('open');
@@ -693,11 +686,7 @@ function sortCards(val){
   cards.forEach(c=>grid.appendChild(c));
 }
 
-// SCROLL TO CATALOG (from tags)
-function filterByType(){
-  resetFilters();
-  document.getElementById('catalogo').scrollIntoView({behavior:'smooth'});
-}
+
 
 
 
