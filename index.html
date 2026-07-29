@@ -73,8 +73,6 @@ nav a:hover{color:white}
 .check-list input[type=checkbox]{accent-color:var(--glacier);width:15px;height:15px;cursor:pointer}
 .check-list .count{margin-left:auto;font-size:.75rem;color:var(--muted)}
 
-.range-wrap{padding:.25rem 0 .5rem}
-.range-wrap input[type=range]{width:100%;accent-color:var(--glacier)}
 .range-labels{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);margin-top:4px}
 
 .filter-reset{width:100%;margin-top:1rem;padding:8px;border:1.5px solid var(--border);background:none;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.83rem;color:var(--muted);cursor:pointer;transition:all .2s}
@@ -104,10 +102,9 @@ nav a:hover{color:white}
 .badge-occasion{background:#1A3A5C;color:white}
 .badge-rando{background:#2A7DB4;color:white}
 
-.card-img{width:100%;height:190px;background:linear-gradient(145deg,#E8F0F8,#C8D8E8);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;position:relative}
-.card-img img{width:100%;height:100%;object-fit:cover}
+.card-img{width:100%;height:320px;background:linear-gradient(145deg,#E8F0F8,#C8D8E8);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.card-img img{width:auto;height:100%;max-width:100%;object-fit:contain}
 .no-photo-label{font-size:.75rem;color:var(--muted,#6b7a8d);margin-top:.4rem}
-.card-img img{width:100%;height:100%;object-fit:cover}
 .ski-svg{width:60px;opacity:.7}
 
 .card-body{padding:.9rem 1rem 1rem}
@@ -248,24 +245,24 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
     </div>
 
     <div class="filter-group">
-      <button class="filter-toggle open" onclick="toggleFilter(this)">Talla (cm) <span class="arrow">▲</span></button>
+      <button class="filter-toggle open" onclick="toggleFilter(this)">Talla <span class="arrow">▲</span></button>
       <div class="filter-body open">
-        <div class="range-wrap">
-          <input type="range" id="talla-min" min="80" max="190" value="80" step="5" oninput="updateRange()">
-          <input type="range" id="talla-max" min="80" max="190" value="190" step="5" oninput="updateRange()">
-          <div class="range-labels"><span id="talla-min-val">80 cm</span><span id="talla-max-val">190 cm</span></div>
-        </div>
+        <ul class="check-list">
+          <li><label><input type="checkbox" onchange="applyFilters()" data-filter="talla" value="junior"> Junior (≤ 140 cm)</label></li>
+          <li><label><input type="checkbox" onchange="applyFilters()" data-filter="talla" value="media"> 141–170 cm</label></li>
+          <li><label><input type="checkbox" onchange="applyFilters()" data-filter="talla" value="alta"> 171 cm y más</label></li>
+        </ul>
       </div>
     </div>
 
     <div class="filter-group">
-      <button class="filter-toggle" onclick="toggleFilter(this)">Precio (CLP) <span class="arrow">▼</span></button>
-      <div class="filter-body">
-        <div class="range-wrap">
-          <input type="range" id="precio-min" min="0" max="260000" value="0" step="5000" oninput="updatePriceRange()">
-          <input type="range" id="precio-max" min="0" max="260000" value="260000" step="5000" oninput="updatePriceRange()">
-          <div class="range-labels"><span id="precio-min-val">$0</span><span id="precio-max-val">$260.000</span></div>
-        </div>
+      <button class="filter-toggle open" onclick="toggleFilter(this)">Precio (CLP) <span class="arrow">▲</span></button>
+      <div class="filter-body open">
+        <ul class="check-list">
+          <li><label><input type="checkbox" onchange="applyFilters()" data-filter="precio" value="baja"> Hasta $100.000</label></li>
+          <li><label><input type="checkbox" onchange="applyFilters()" data-filter="precio" value="media"> $100.001 – $200.000</label></li>
+          <li><label><input type="checkbox" onchange="applyFilters()" data-filter="precio" value="alta"> Más de $200.000</label></li>
+        </ul>
       </div>
     </div>
 
@@ -551,8 +548,8 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
 <!-- GUIDE -->
 <section class="guide-section" id="guia">
   <div class="guide-inner">
-    <h2>Cómo elegir tus esquís de usados verificados en Aysén</h2>
-    <p class="guide-intro">Coyhaique tiene acceso a El Fraile y varios sectores de montaña con condiciones muy distintas a las estaciones del centro del país: nieve pesada, pistas cortas, y mucha variabilidad de temperatura. Elegir bien el equipo de usados verificados puede marcar la diferencia entre una temporada cómoda y una llena de frustraciones.</p>
+    <h2>Cómo elegir tus esquís de usados verificados</h2>
+    <p class="guide-intro">Elegir bien tu equipo de esquís usados y verificados es clave para una temporada sin contratiempos. Esta guía resume los criterios técnicos esenciales: talla, nivel y tipo de esquí.</p>
 
     <table class="price-table">
       <thead><tr><th>Estado del equipo</th><th>Rango de precio (CLP)</th></tr></thead>
@@ -567,22 +564,22 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
       <div class="guide-block">
         <span class="level-icon">🟢</span>
         <h3>Eres principiante</h3>
-        <p>Elige un esquí corto — 10 cm menos que tu talla —, blando y maniobrable. En Aysén no necesitas nada técnico para comenzar. Un carving de usados verificados en buen estado te da el mismo resultado a la mitad del precio.</p>
+        <p>Elige un esquí corto — 10 cm menos que tu talla —, blando y maniobrable. Un modelo carving en buen estado te da buen control de aprendizaje a un precio accesible.</p>
       </div>
       <div class="guide-block">
         <span class="level-icon">🟡</span>
         <h3>Nivel intermedio</h3>
-        <p>Apuntas a mejorar tu técnica y explorar terreno variado. Un All Mountain es la opción más versátil para las condiciones de Aysén: funciona en pista dura y en nieve fresca sin comprometer el control.</p>
+        <p>Apuntas a mejorar tu técnica y explorar terreno variado. Un All Mountain es la opción más versátil: funciona tanto en pista compactada como en nieve variada, sin comprometer el control.</p>
       </div>
       <div class="guide-block">
         <span class="level-icon">🔴</span>
         <h3>Nivel avanzado / experto</h3>
-        <p>Si esquías fuera de pista o buscas velocidad, invierte en un equipo más rígido y ancho (95–110 mm bajo el pie). La nevada patagónica suele ser pesada — necesitas un ski que flote y corte bien.</p>
+        <p>Si esquías fuera de pista o buscas velocidad, invierte en un equipo más rígido y ancho (95–110 mm bajo el pie), con buena flotación y capacidad de corte.</p>
       </div>
       <div class="guide-block">
         <span class="level-icon">📏</span>
         <h3>La talla correcta</h3>
-        <p>Regla general: entre mentón y frente para carving en pista; entre nariz y 5 cm sobre la cabeza para freeride y All Mountain con nieve fresca. Nunca compres más largo "para crecer" — perjudica la técnica.</p>
+        <p>Regla general: entre mentón y frente para carving en pista; entre nariz y 5 cm sobre la cabeza para freeride y All Mountain. Nunca compres más largo "para crecer" — perjudica la técnica.</p>
       </div>
     </div>
 
@@ -596,8 +593,8 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
         <p>Si compras tu primer par, un pack ski + fijación ya montada y calibrada es la opción más segura. Si ya tienes botas de ski y conoces tu DIN (índice de suelta), puedes comprar el ski solo y montar las fijaciones en Coyhaique. Consúltanos por WhatsApp si tienes dudas.</p>
       </div>
       <div class="qa-item">
-        <h3>¿Qué diferencia un esquí de pista de uno de freeride en Aysén?</h3>
-        <p>En El Fraile y los sectores de montaña de Aysén la nieve puede ser dura por la mañana y blanda o polvo al mediodía. Un ski All Mountain de 90–105 mm bajo el pie te da el mejor equilibrio. Si solo esquías pista preparada, un carving de 70–85 mm es más eficiente.</p>
+        <h3>¿Qué diferencia un esquí de pista de uno de freeride?</h3>
+        <p>Un esquí de pista (carving) mide entre 70 y 85 mm bajo el pie, con radios de giro cortos, pensado para nieve compactada. Un freeride es más ancho — 90 mm o más bajo el pie — y ofrece mayor flotación en nieve profunda o variable fuera de pista.</p>
       </div>
     </div>
 
@@ -605,8 +602,8 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
       <button class="rel-tag" onclick="filterByType()">Ver catálogo</button>
       <button class="rel-tag" onclick="filterByType()">Skis niños</button>
       <button class="rel-tag" onclick="filterByType()">Pack ski + fijaciones</button>
-      <button class="rel-tag">Rossignol ocasión</button>
-      <button class="rel-tag">Salomon ocasión</button>
+      <button class="rel-tag" onclick="filterByType()">Rossignol</button>
+      <button class="rel-tag" onclick="filterByType()">Völkl</button>
     </div>
   </div>
 </section>
@@ -647,22 +644,31 @@ function toggleFilter(btn){
 }
 
 // APPLY FILTERS
+const TALLA_BANDS = { junior:[0,140], media:[141,170], alta:[171,9999] };
+const PRECIO_BANDS = { baja:[0,100000], media:[100001,200000], alta:[200001,99999999] };
+
 function applyFilters(){
   const cards = document.querySelectorAll('.ski-card');
   const marcas = getChecked('marca');
-  const tallaMin = parseInt(document.getElementById('talla-min').value);
-  const tallaMax = parseInt(document.getElementById('talla-max').value);
-  const precioMin = parseInt(document.getElementById('precio-min').value);
-  const precioMax = parseInt(document.getElementById('precio-max').value);
+  const tallas = getChecked('talla');
+  const precios = getChecked('precio');
 
   let visible = 0;
   cards.forEach(c => {
     const cardTallaMin = Number(c.dataset.tallaMin);
     const cardTallaMax = Number(c.dataset.tallaMax);
-    const ok =
-      (!marcas.length || marcas.includes(c.dataset.marca)) &&
-      cardTallaMax >= tallaMin && cardTallaMin <= tallaMax &&
-      Number(c.dataset.precio) >= precioMin && Number(c.dataset.precio) <= precioMax;
+    const cardPrecio = Number(c.dataset.precio);
+
+    const tallaOk = !tallas.length || tallas.some(t => {
+      const [bMin,bMax] = TALLA_BANDS[t];
+      return cardTallaMax >= bMin && cardTallaMin <= bMax;
+    });
+    const precioOk = !precios.length || precios.some(p => {
+      const [bMin,bMax] = PRECIO_BANDS[p];
+      return cardPrecio >= bMin && cardPrecio <= bMax;
+    });
+
+    const ok = (!marcas.length || marcas.includes(c.dataset.marca)) && tallaOk && precioOk;
     c.classList.toggle('hidden', !ok);
     if(ok) visible++;
   });
@@ -675,27 +681,6 @@ function getChecked(filter){
 
 function resetFilters(){
   document.querySelectorAll('input[type=checkbox]').forEach(i=>i.checked=false);
-  document.getElementById('talla-min').value=80;
-  document.getElementById('talla-max').value=190;
-  document.getElementById('precio-min').value=0;
-  document.getElementById('precio-max').value=260000;
-  updateRange(); updatePriceRange();
-  applyFilters();
-}
-
-function updateRange(){
-  const min = document.getElementById('talla-min').value;
-  const max = document.getElementById('talla-max').value;
-  document.getElementById('talla-min-val').textContent = min+' cm';
-  document.getElementById('talla-max-val').textContent = max+' cm';
-  applyFilters();
-}
-
-function updatePriceRange(){
-  const min = parseInt(document.getElementById('precio-min').value);
-  const max = parseInt(document.getElementById('precio-max').value);
-  document.getElementById('precio-min-val').textContent = '$'+min.toLocaleString('es-CL');
-  document.getElementById('precio-max-val').textContent = '$'+max.toLocaleString('es-CL');
   applyFilters();
 }
 
