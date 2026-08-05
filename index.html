@@ -100,6 +100,9 @@ nav a:hover{color:white}
 .badge{font-size:.68rem;font-weight:600;letter-spacing:.05em;padding:3px 8px;border-radius:3px;text-transform:uppercase}
 .badge-pct{background:#2196F3;color:white}
 .badge-occasion{background:#1A3A5C;color:white}
+.badge-vendido{background:#6B7C8D;color:white}
+.card-vendido{opacity:.72}
+.btn-vendido{background:#6B7C8D!important;color:white!important;cursor:default;pointer-events:none;grid-template-columns:1fr}
 .badge-rando{background:#2A7DB4;color:white}
 
 .card-img{width:100%;height:320px;background:#ffffff;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;position:relative}
@@ -323,18 +326,41 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
         </div>
       </div>
 
-      <!-- Rossignol S7 -->
+      <!-- Rossignol Super 7 - VENDIDO -->
+      <div class="ski-card card-vendido"
+        data-marca="rossignol" data-talla-min="188" data-talla-max="188" data-precio="250000">
+        <div class="card-badges">
+          <span class="badge badge-vendido">Vendido</span>
+        </div>
+        <div class="card-img" onclick="openLightbox('images/rossignol-super7-188.jpg','Rossignol Super 7')" style="cursor:zoom-in">
+          <img src="images/rossignol-super7-188.jpg" alt="Rossignol Super 7" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-brand">Rossignol</div>
+          <div class="card-name">Super 7</div>
+          <div class="card-meta">
+            <span class="meta-tag">188 cm</span><span class="meta-tag">0 unidades</span>
+          </div>
+          <div class="card-price">
+            <span class="price-currency">$</span>
+            <span class="price-now">250.000</span>
+          </div>
+          <div class="card-btns"><span class="btn-mp btn-vendido">Vendido</span></div>
+        </div>
+      </div>
+
+      <!-- Rossignol S7 BC -->
       <div class="ski-card"
         data-marca="rossignol" data-talla-min="188" data-talla-max="188" data-precio="250000">
         <div class="card-badges">
           <span class="badge badge-occasion">2 unidades en stock</span>
         </div>
-        <div class="card-img" onclick="openLightbox('images/rossignol-s7-188.jpg','Rossignol S7')" style="cursor:zoom-in">
-          <img src="images/rossignol-s7-188.jpg" alt="Rossignol S7" loading="lazy">
+        <div class="card-img" onclick="openLightbox('images/rossignol-s7bc-188.jpg','Rossignol S7 BC')" style="cursor:zoom-in">
+          <img src="images/rossignol-s7bc-188.jpg" alt="Rossignol S7 BC" loading="lazy">
         </div>
         <div class="card-body">
           <div class="card-brand">Rossignol</div>
-          <div class="card-name">S7</div>
+          <div class="card-name">S7 BC</div>
           <div class="card-meta">
             <span class="meta-tag">188 cm</span><span class="meta-tag">2 unidades</span>
           </div>
@@ -342,30 +368,7 @@ footer .footer-col a{display:block;margin-bottom:.4rem;font-size:.82rem}
             <span class="price-currency">$</span>
             <span class="price-now">250.000</span>
           </div>
-          <div class="card-btns" style="grid-template-columns:1fr"><a href="https://wa.me/56996158125?text=Hola%2C%20me%20interesa%20el%20Rossignol%20S7" class="btn-mp" target="_blank" style="background:#2196F3">Comprar</a></div>
-        </div>
-      </div>
-
-      <!-- Rossignol Super7 -->
-      <div class="ski-card"
-        data-marca="rossignol" data-talla-min="188" data-talla-max="188" data-precio="250000">
-        <div class="card-badges">
-          <span class="badge badge-occasion">1 unidad en stock</span>
-        </div>
-        <div class="card-img" onclick="openLightbox('images/rossignol-super7-188.jpg','Rossignol Super7')" style="cursor:zoom-in">
-          <img src="images/rossignol-super7-188.jpg" alt="Rossignol Super7" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="card-brand">Rossignol</div>
-          <div class="card-name">Super7</div>
-          <div class="card-meta">
-            <span class="meta-tag">188 cm</span><span class="meta-tag">1 unidad</span>
-          </div>
-          <div class="card-price">
-            <span class="price-currency">$</span>
-            <span class="price-now">250.000</span>
-          </div>
-          <div class="card-btns" style="grid-template-columns:1fr"><a href="https://wa.me/56996158125?text=Hola%2C%20me%20interesa%20el%20Rossignol%20Super7" class="btn-mp" target="_blank" style="background:#2196F3">Comprar</a></div>
+          <div class="card-btns" style="grid-template-columns:1fr"><a href="https://wa.me/56996158125?text=Hola%2C%20me%20interesa%20el%20Rossignol%20S7%20BC" class="btn-mp" target="_blank" style="background:#2196F3">Comprar</a></div>
         </div>
       </div>
 
